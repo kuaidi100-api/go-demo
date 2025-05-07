@@ -11,8 +11,8 @@ import (
 )
 
 const (
-	KEY    = "hFBwtSji7088"                     // 客户授权key
-	SECRET = "e42beece3c01484a8ae82bcd042fe1fa" // 秘钥
+	KEY    = "***" // 客户授权key
+	SECRET = "***" // 秘钥
 )
 
 type Payload struct {
