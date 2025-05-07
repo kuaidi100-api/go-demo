@@ -1,6 +1,7 @@
 package border
 
 import (
+	"go-test/config"
 	"go-test/utils"
 )
 
@@ -33,10 +34,6 @@ type Param struct {
 	CancelMsg string `json:"cancelMsg,omitempty"`
 }
 
-const (
-	BORDER_URL = "https://poll.kuaidi100.com/order/borderapi.do" // 请求地址
-)
-
 func DoBorderRequest(method string, t string, param string) (string, error) {
-	return utils.DoRequest(method, t, param, BORDER_URL)
+	return utils.DoMethodRequest(method, t, param, config.B_ORDER_URL)
 }

@@ -1,6 +1,7 @@
 package elec
 
 import (
+	"go-test/config"
 	"go-test/utils"
 )
 
@@ -73,26 +74,14 @@ type Auth struct {
 	View        string `json:"view,omitempty"`
 }
 
-const (
-	AUTH_URL          = "https://poll.kuaidi100.com/printapi/authThird.do" // 第三方平台账号授权
-	LABEL_ORDER_URL   = "https://api.kuaidi100.com/label/order"            // 自定义模板打印、自定义模板打印复打、电子面单下单/复打/取消请求地址
-	QUERY_BALANCE_URL = "http://poll.kuaidi100.com/eorderapi.do"           // 第三方平台网点&面单余额接口
-	ELEC_OCR_URL      = "http://api.kuaidi100.com/elec/detocr"             // 电子面单OCR识别请求地址
-)
-
 func DoAuthRequest(t string, param string) (string, error) {
-	return utils.DoRequest("", t, param, AUTH_URL)
+	return utils.DoRequest(t, param, config.AUTH_URL)
 }
 
 func DoLabelOrderRequest(method string, t string, param string) (string, error) {
-	return utils.DoRequest(method, t, param, LABEL_ORDER_URL)
+	return utils.DoMethodRequest(method, t, param, config.LABEL_ORDER_URL)
 }
 
 func DoQueryBalanceRequest(t string, param string) (string, error) {
-	return utils.DoRequest("", t, param, QUERY_BALANCE_URL)
-}
-
-// DoElecOcrRequest 处理电子面单OCR识别请求
-func DoElecOcrRequest(param string) (string, error) {
-	return utils.DoRequest("", "", param, ELEC_OCR_URL)
+	return utils.DoRequest(t, param, config.QUERY_BALANCE_URL)
 }

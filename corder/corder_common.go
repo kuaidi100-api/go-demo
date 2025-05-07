@@ -1,6 +1,7 @@
 package corder
 
 import (
+	"go-test/config"
 	"go-test/utils"
 )
 
@@ -30,10 +31,6 @@ type Param struct {
 	CancelMsg string `json:"cancelMsg"`
 }
 
-const (
-	C_ORDER_URL = "https://order.kuaidi100.com/order/corderapi.do" // 请求地址
-)
-
 func DoCorderRequest(method string, t string, param string) (string, error) {
-	return utils.DoRequest(method, t, param, C_ORDER_URL)
+	return utils.DoMethodRequest(method, t, param, config.C_ORDER_URL)
 }

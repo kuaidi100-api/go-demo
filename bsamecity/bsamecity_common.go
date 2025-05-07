@@ -1,6 +1,7 @@
 package bsamecity
 
 import (
+	"go-test/config"
 	"go-test/utils"
 )
 
@@ -49,10 +50,6 @@ type Goods struct {
 	Count int    `json:"count,omitempty"`
 }
 
-const (
-	BSAMECITY_URL = "https://api.kuaidi100.com/bsamecity/order" // 请求地址
-)
-
 func DoBsamecityRequest(method string, t string, param string) (string, error) {
-	return utils.DoRequest(method, t, param, BSAMECITY_URL)
+	return utils.DoMethodRequest(method, t, param, config.BSAMECITY_URL)
 }
