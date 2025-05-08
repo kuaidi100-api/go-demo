@@ -23,6 +23,9 @@ type PollMapParam struct {
 	Parameters PollMapParameters `json:"parameters"`
 }
 
+/*
+*地图轨迹推送接口
+ */
 func PollMap() {
 
 	parameters := PollMapParameters{

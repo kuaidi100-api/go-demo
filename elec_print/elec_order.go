@@ -1,4 +1,4 @@
-package elec
+package elec_print
 
 import (
 	"encoding/json"
@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+/*
+*电子面单下单接口
+ */
 func Order() {
 	method := "order"
 

@@ -1,4 +1,4 @@
-package elec
+package value_add
 
 import (
 	"fmt"
@@ -6,29 +6,41 @@ import (
 	"time"
 )
 
-// 测试函数
 func Test(t *testing.T) {
-	Order()
+
+	AddressResolution()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 
-	printOld()
+	AutoNumber()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 
-	Cancel()
+	BackOrder()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 
-	custom()
+	DetOCR()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 
-	AuthThird()
+	EstimatePrice()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 
-	QueryBalance()
+	EstimateTime()
+	fmt.Println()
+	time.Sleep(500 * time.Millisecond)
+
+	InterceptOrder()
+	fmt.Println()
+	time.Sleep(500 * time.Millisecond)
+
+	Reachable()
+	fmt.Println()
+	time.Sleep(500 * time.Millisecond)
+
+	SmsSend()
 	fmt.Println()
 	time.Sleep(500 * time.Millisecond)
 

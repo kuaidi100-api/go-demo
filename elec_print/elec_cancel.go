@@ -1,4 +1,4 @@
-package elec
+package elec_print
 
 import (
 	"encoding/json"
@@ -6,7 +6,10 @@ import (
 	"time"
 )
 
-// Cancel 通过快递公司或网点、菜鸟与淘宝提供的电子面单账号，对已经提交过的面单但没有寄发的面单号进行取消
+/*
+*
+电子面单取消接口
+*/
 func Cancel() {
 	method := "cancel"
 

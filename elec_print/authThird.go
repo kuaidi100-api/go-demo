@@ -1,14 +1,26 @@
-package elec
+package elec_print
 
 import (
 	"encoding/json"
 	"fmt"
+	"go-test/config"
+	"go-test/utils"
 	"time"
 )
 
+type AuthThirdParam struct {
+	Net         string `json:"net,omitempty"`
+	CallBackUrl string `json:"callBackUrl,omitempty"`
+	PartnerId   string `json:"partnerId,omitempty"`
+	View        string `json:"view,omitempty"`
+}
+
+/*
+*第三方平台账号授权
+ */
 func AuthThird() {
 
-	param := Auth{
+	param := AuthThirdParam{
 		Net:         "123",
 		CallBackUrl: "www.baidu.com",
 		PartnerId:   "123",
@@ -23,7 +35,7 @@ func AuthThird() {
 	t := fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
 
 	// 发送请求
-	_, err := DoAuthRequest(t, paramStr)
+	_, err := utils.DoRequest(t, paramStr, config.AUTH_URL)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)

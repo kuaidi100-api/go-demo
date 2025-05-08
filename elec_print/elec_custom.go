@@ -1,4 +1,4 @@
-package elec
+package elec_print
 
 import (
 	"encoding/json"
@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+/*
+*自定义模板打印接口
+ */
 func custom() {
 	method := "custom"
 

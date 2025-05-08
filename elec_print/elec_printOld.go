@@ -1,4 +1,4 @@
-package elec
+package elec_print
 
 import (
 	"encoding/json"
@@ -6,13 +6,15 @@ import (
 	"time"
 )
 
-func QueryBalance() {
+/*
+*自定义模板打印复打接口
+ */
+func printOld() {
+	method := "printOld"
 
 	param := Param{
-		PartnerId:  "123",
-		PartnerKey: "123",
-		Net:        "taobao",
-		Com:        "shentong",
+		Siid:   "KX100*******",
+		TaskId: "1234",
 	}
 
 	// 将参数转换为JSON字符串
@@ -23,7 +25,7 @@ func QueryBalance() {
 	t := fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
 
 	// 发送请求
-	_, err := DoQueryBalanceRequest(t, paramStr)
+	_, err := DoLabelOrderRequest(method, t, paramStr)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)

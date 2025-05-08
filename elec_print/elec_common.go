@@ -1,4 +1,4 @@
-package elec
+package elec_print
 
 import (
 	"go-test/config"
@@ -63,25 +63,8 @@ type Param struct {
 	Reason        string `json:"reason,omitempty"`
 
 	CustomParam CustomParam `json:"customParam"`
-
-	Com string `json:"com,omitempty"`
-}
-
-type Auth struct {
-	Net         string `json:"net,omitempty"`
-	CallBackUrl string `json:"callBackUrl,omitempty"`
-	PartnerId   string `json:"partnerId,omitempty"`
-	View        string `json:"view,omitempty"`
-}
-
-func DoAuthRequest(t string, param string) (string, error) {
-	return utils.DoRequest(t, param, config.AUTH_URL)
 }
 
 func DoLabelOrderRequest(method string, t string, param string) (string, error) {
 	return utils.DoMethodRequest(method, t, param, config.LABEL_ORDER_URL)
-}
-
-func DoQueryBalanceRequest(t string, param string) (string, error) {
-	return utils.DoRequest(t, param, config.QUERY_BALANCE_URL)
 }
