@@ -56,4 +56,7 @@ const (
 	WORK_ORDER_REPLY_URL = "https://api.kuaidi100.com/workorder/api/reply" //工单留言
 
 	WORK_ORDER_UPLOAD_URL = "https://api.kuaidi100.com/workorder/api/upload" //上传附件
+
+	MONITOR_ORDER_URL = "http://api.kuaidi100.com/logistics/monitor/api/order" //物流全链路监控 订单导入、发货接口
+
 )

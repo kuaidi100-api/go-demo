@@ -1,13 +1,16 @@
 package utils
 
 import (
+	"bytes"
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
 	"go-test/config"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
 
@@ -84,6 +87,66 @@ func DoMapRequest(m map[string]string, postUrl string) (string, error) {
 		formData.Add(key, value)
 	}
 	return execute(postUrl, formData)
+}
+
+func DoFileRequest(m map[string]string, file *os.File, postUrl string) (string, error) {
+	// 创建一个缓冲区来存储表单数据
+	buf := bytes.NewBuffer(nil)
+
+	// 创建一个新的 multipart/writer
+	writer := multipart.NewWriter(buf)
+
+	// 添加 map 中的数据到表单
+	for key, value := range m {
+		if err := writer.WriteField(key, value); err != nil {
+			return "", err
+		}
+	}
+
+	// 添加文件到表单
+	part, err := writer.CreateFormFile("file", file.Name())
+	if err != nil {
+		return "", err
+	}
+	if _, err = io.Copy(part, file); err != nil {
+		return "", err
+	}
+
+	// 关闭 writer，否则请求体可能会不完整
+	writer.Close()
+
+	// 创建HTTP客户端
+	client := &http.Client{}
+
+	// 创建一个新的 http 请求
+	req, err := http.NewRequest("POST", postUrl, buf)
+	if err != nil {
+		return "", err
+	}
+
+	// 设置请求头中的 Content-Type
+	req.Header.Set("Content-Type", writer.FormDataContentType())
+
+	// 发送HTTP请求
+	fmt.Printf("请求信息: %v\n", req)
+	fmt.Printf("请求参数: %v\n", fmt.Sprintf("%v", buf))
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Printf("请求失败: %v\n", err)
+		return "请求失败", err
+	}
+	defer resp.Body.Close()
+
+	// 读取响应内容
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf("读取响应失败: %v\n", err)
+		return string(respBody), err
+	}
+
+	// 打印响应内容
+	fmt.Println("响应内容:", string(respBody))
+	return string(respBody), err
 }
 
 /**
