@@ -35,7 +35,7 @@ go-demo使用和测试可参考各级目录下的`*_test.go`文件。
 ### 电子面单与云打印(elec_print)接口
 - [电子面单下单接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/elec_order.go)
 - [第三方平台账号授权](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/authThird.go)
-- [第三方平台网点&面单余额接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print\third_info.go)
+- [第三方平台网点&面单余额接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/third_info.go)
 - [电子面单取消接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/elec_cancel.go)
 
 - [获取店铺授权超链接接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/shop_authorize.go)
