@@ -17,6 +17,8 @@ type PollParameters struct {
 type PollParam struct {
 	Company    string         `json:"company"`
 	Number     string         `json:"number"`
+	From       string         `json:"from"`
+	To         string         `json:"to"`
 	Key        string         `json:"key"`
 	Parameters PollParameters `json:"parameters"`
 }
@@ -36,7 +38,9 @@ func Poll() {
 	param := PollParam{
 		Company:    "yuantong",
 		Number:     "YT6186594166532",
-		Key:        "XXX ",
+		From:       "",
+		To:         "",
+		Key:        config.KEY,
 		Parameters: parameters,
 	}
 
@@ -44,8 +48,13 @@ func Poll() {
 	paramJson, _ := json.Marshal(param)
 	paramStr := string(paramJson)
 
+	m := map[string]string{
+		"schema": "json",
+		"param":  paramStr,
+	}
+
 	// 发送请求
-	_, err := utils.CustomerRequest(paramStr, config.POLL_URL)
+	_, err := utils.DoMapRequest(m, config.POLL_URL)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
