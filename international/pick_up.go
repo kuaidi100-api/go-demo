@@ -22,7 +22,7 @@ type PickUpParam struct {
 }
 
 /*
-*国际电子面单下单API
+*预约取件API
  */
 func PickUp() {
 	sendMan := SendMan{

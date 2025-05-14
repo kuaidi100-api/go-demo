@@ -21,7 +21,7 @@ type CancelPickUpParam struct {
 }
 
 /*
-*国际电子面单取消预约API
+*取消预约API
  */
 func CancelPickUp() {
 

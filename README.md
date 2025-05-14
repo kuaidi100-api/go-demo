@@ -30,7 +30,7 @@ go-demo使用和测试可参考各级目录下的`*_test.go`文件。
 - [实时快递查询接口](https://github.com/kuaidi100-api/go-demo/blob/main/base/query.go)
 - [快递信息推送服务-订阅接口](https://github.com/kuaidi100-api/go-demo/blob/main/base/poll.go)
 - [快递查询地图轨迹](https://github.com/kuaidi100-api/go-demo/blob/main/base/maptrack.go)
-- [地图轨迹推送接口](https://github.com/kuaidi100-api/go-demo/blob/main/base/PollMap.go)
+- [地图轨迹推送接口](https://github.com/kuaidi100-api/go-demo/blob/main/base/pollMap.go)
 
 ### 电子面单与云打印(elec_print)接口
 - [电子面单下单接口](https://github.com/kuaidi100-api/go-demo/blob/main/elec_print/elec_order.go)
@@ -88,7 +88,8 @@ go-demo使用和测试可参考各级目录下的`*_test.go`文件。
 - [快递预估价格查询接口](https://github.com/kuaidi100-api/go-demo/blob/main/value_add/estimate_price.go)
 
 ### 跨境服务(international)接口
+- [国际电子面单下单API](https://github.com/kuaidi100-api/go-demo/blob/main/international/api_call.go)
+- [预约取件API](https://github.com/kuaidi100-api/go-demo/blob/main/international/pick_up.go)
+- [取消预约API](https://github.com/kuaidi100-api/go-demo/blob/main/international/cancel_pick_up.go)
 - [国际地址解析接口](https://github.com/kuaidi100-api/go-demo/blob/main/international/international_address_resolution.go)
-- [国际电子面单下单API](https://github.com/kuaidi100-api/go-demo/blob/main/international/pick_up.go)
-- [国际电子面单取消预约API](https://github.com/kuaidi100-api/go-demo/blob/main/international/cancel_pick_up.go)
 
