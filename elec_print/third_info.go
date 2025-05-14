@@ -20,6 +20,7 @@ type QueryBalanceParam struct {
 第三方平台网点&面单余额接口
 */
 func GetThirdInfo() {
+	method := "getThirdInfo"
 
 	param := QueryBalanceParam{
 		PartnerId:  "123",
@@ -36,7 +37,7 @@ func GetThirdInfo() {
 	t := fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
 
 	// 发送请求
-	_, err := utils.DoRequest(t, paramStr, config.THIRD_INFO_URL)
+	_, err := utils.DoMethodRequest(method, t, paramStr, config.THIRD_INFO_URL)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
