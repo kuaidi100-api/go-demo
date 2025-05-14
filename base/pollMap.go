@@ -40,7 +40,7 @@ func PollMap() {
 		Number:     "1136281381675",
 		From:       "广东省深圳市南山区",
 		To:         "北京市朝阳区",
-		Key:        "XXX ",
+		Key:        config.KEY,
 		Parameters: parameters,
 	}
 
@@ -48,8 +48,13 @@ func PollMap() {
 	paramJson, _ := json.Marshal(param)
 	paramStr := string(paramJson)
 
+	m := map[string]string{
+		"schema": "json",
+		"param":  paramStr,
+	}
+
 	// 发送请求
-	_, err := utils.CustomerRequest(paramStr, config.POLL_MAP_URL)
+	_, err := utils.DoMapRequest(m, config.POLL_MAP_URL)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
